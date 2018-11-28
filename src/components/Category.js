@@ -7,7 +7,8 @@ class Category extends Component {
       <Book
         key={book.name}
         name={book.name}
-        src={book.src} 
+        src={book.src}
+        removeBook={this.props.removeBook}
       />
     ));
 
