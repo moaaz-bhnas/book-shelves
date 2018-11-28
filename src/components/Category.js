@@ -3,12 +3,16 @@ import Book from './Book';
 
 class Category extends Component {
   render() {
+    const theOtherCategories = ['currently reading', 'want to read', 'read'].filter(category => category !== this.props.title.toLowerCase());
+
     const books = this.props.books.map(book => (
       <Book
         key={book.name}
         name={book.name}
         src={book.src}
-        removeBook={this.props.removeBook}
+        removeBook={() => this.props.removeBook(book.name)}
+        theOtherCategories={theOtherCategories}
+        changeCategory={newCategoryName => this.props.changeCategory(newCategoryName, book.name)}
       />
     ));
 

@@ -56,16 +56,14 @@ class Bookcase extends Component {
     }
   }
 
-  removeBook(category, bookName) {
+  removeBook(categoryName, bookName) {
     /*
     1- Get a shallow copy of the books object
     2- Use the (category) parameter to determine the set of books that we'll search throught
     3- Use the (bookName) parameter to get the specific book to be removed
     */
     const books = this.state.books;
-    const categoryBooks = (category === 'currently reading') ? books.currentlyReading
-                        : (category === 'want to read') ? books.wantToRead
-                        : books.read;
+    const categoryBooks = this.getCategoryArr(categoryName);
     categoryBooks.forEach((book, index) => {
       if (book.name === bookName) {
         categoryBooks.splice(index, 1);
@@ -76,6 +74,29 @@ class Bookcase extends Component {
     })
   }
 
+  changeCategory(oldCategoryName, newCategoryName, bookName) {
+    const books = this.state.books;
+    const oldCategoryBooks = this.getCategoryArr(oldCategoryName);
+    const newCategoryBooks = this.getCategoryArr(newCategoryName);
+    oldCategoryBooks.forEach((book, index) => {
+      if (book.name === bookName) {
+        // Remove
+        const removedBook = oldCategoryBooks.splice(index, 1)[0];
+        // Add
+        newCategoryBooks.push(removedBook);
+      }
+    })
+    this.setState({
+      books
+    })
+  }
+
+  getCategoryArr(name) {
+    return (name === 'currently reading') ? this.state.books.currentlyReading
+         : (name === 'want to read') ? this.state.books.wantToRead
+         : this.state.books.read; 
+  }
+
   render() {
     return (
       <main role="main">
@@ -83,19 +104,22 @@ class Bookcase extends Component {
           books={this.state.books.currentlyReading} 
           id={categories.currentlyReading.id} 
           title={categories.currentlyReading.title}
-          removeBook={bookName => this.removeBook('currently reading', bookName)} 
+          removeBook={bookName => this.removeBook('currently reading', bookName)}
+          changeCategory={(newCategoryName, bookName) => this.changeCategory('currently reading', newCategoryName, bookName)}
         />
         <Category 
           books={this.state.books.wantToRead} 
           id={categories.wantToRead.id} 
           title={categories.wantToRead.title}
-          removeBook={bookName => this.removeBook('want to read', bookName)} 
+          removeBook={bookName => this.removeBook('want to read', bookName)}
+          changeCategory={(newCategoryName, bookName) => this.changeCategory('want to read', newCategoryName, bookName)}
         />
         <Category 
           books={this.state.books.read} 
           id={categories.read.id} 
           title={categories.read.title}
-          removeBook={bookName => this.removeBook('read', bookName)} 
+          removeBook={bookName => this.removeBook('read', bookName)}
+          changeCategory={(newCategoryName, bookName) => this.changeCategory('read', newCategoryName, bookName)}
         />
       </main>
     );
