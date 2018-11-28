@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Book = props => {
   return (
@@ -10,6 +10,7 @@ const Book = props => {
       <img src={props.src} alt={props.name}/>
 
       <select 
+        value={props.category}
         id="category-selection" 
         aria-label="Choose another category to move this book to"
         onChange={event => props.changeCategory(event.target.value)}

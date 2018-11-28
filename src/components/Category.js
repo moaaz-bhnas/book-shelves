@@ -10,9 +10,10 @@ class Category extends Component {
         key={book.name}
         name={book.name}
         src={book.src}
+        category={book.category}
         removeBook={() => this.props.removeBook(book.name)}
         theOtherCategories={theOtherCategories}
-        changeCategory={newCategoryName => this.props.changeCategory(newCategoryName, book.name)}
+        changeCategory={newCategoryName => this.props.changeCategory(book.name, newCategoryName)}
       />
     ));
 
