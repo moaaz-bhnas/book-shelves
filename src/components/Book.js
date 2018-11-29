@@ -7,7 +7,7 @@ const Book = props => {
         <abbr title="Remove">x</abbr>
       </button>
 
-      <img src={props.src} alt={props.name}/>
+      <img src={props.src} alt={props.title}/>
 
       <select 
         value={props.category}

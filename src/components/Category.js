@@ -6,13 +6,13 @@ const Category = props => {
 
     const books = props.books.map(book => (
       <Book
-        key={book.name}
-        name={book.name}
+        key={book.title}
+        title={book.title}
         src={book.src}
         category={book.category}
-        removeBook={() => props.removeBook(book.name)}
+        removeBook={() => props.removeBook(book.title)}
         theOtherCategories={theOtherCategories}
-        changeCategory={newCategoryName => props.changeCategory(book.name, newCategoryName)}
+        changeCategory={newCategoryName => props.changeCategory(book.title, newCategoryName)}
       />
     ));
 

@@ -1,42 +1,4 @@
 import React, { Component } from 'react';
-// Images
-import hp1 from '../images/hp-1.jpeg';
-import hp2 from '../images/hp-2.jpeg';
-import hp3 from '../images/hp-3.jpeg';
-import hp4 from '../images/hp-4.jpeg';
-import hp5 from '../images/hp-5.jpeg';
-import hp6 from '../images/hp-6.jpeg';
-import hp7 from '../images/hp-7.jpeg';
-// Categories
-import Category from './Category';
-
-/* Category Model Class --- */
-class CategoryModel {
-  constructor(id, title) {
-    this.id = id;
-    this.title = title;
-  }
-}
-const categories = {
-  currentlyReading: new CategoryModel('currently-reading', 'Currently Reading'),
-  wantToRead: new CategoryModel('want-to-read', 'Want to Read'),
-  read: new CategoryModel('read', 'Read')
-}
-/* e.g.
-  {
-    id: 'read', // To be used as a section id in Category component
-    title: 'Read' // To be used as a section title
-  }
-*/
-
-/* Book Model Class --- */
-class BookModel {
-  constructor(name, src, category) { 
-    this.name = name;
-    this.src = src;
-    this.category = category;
-  }
-}
 
 class Bookcase extends Component {
   state = {
@@ -51,15 +13,15 @@ class Bookcase extends Component {
     ]
   }
 
-  removeBook(bookName) {
+  removeBook(bookTitle) {
     this.setState(prev => ({
-      books: prev.books.filter(book => book.name !== bookName)
+      books: prev.books.filter(book => book.title !== bookTitle)
     }));
   }
 
-  changeCategory(bookName, newCategory) {
+  changeCategory(bookTitle, newCategory) {
     const books = this.state.books.slice();
-    const bookToMove = books.filter(book => book.name === bookName)[0];
+    const bookToMove = books.filter(book => book.title === bookTitle)[0];
     bookToMove.category = newCategory;
     this.setState({
       books
@@ -76,24 +38,24 @@ class Bookcase extends Component {
       <React.Fragment>
         <Category 
           books={currentlyReadingBooks} 
-          removeBook={(bookName) => this.removeBook(bookName)}
-          changeCategory={(bookName, newCategory) => this.changeCategory(bookName, newCategory)}
+          removeBook={(bookTitle) => this.removeBook(bookTitle)}
+          changeCategory={(bookTitle, newCategory) => this.changeCategory(bookTitle, newCategory)}
           // For the <section>'s id and title
           id={categories.currentlyReading.id} 
           title={categories.currentlyReading.title}
         />
         <Category 
           books={wantToReadBooks} 
-          removeBook={(bookName) => this.removeBook(bookName)}
-          changeCategory={(bookName, newCategory) => this.changeCategory(bookName, newCategory)}
+          removeBook={(bookTitle) => this.removeBook(bookTitle)}
+          changeCategory={(bookTitle, newCategory) => this.changeCategory(bookTitle, newCategory)}
           // For the <section>'s id and title
           id={categories.wantToRead.id} 
           title={categories.wantToRead.title}
         />
         <Category 
           books={readBooks} 
-          removeBook={(bookName) => this.removeBook(bookName)}
-          changeCategory={(bookName, newCategory) => this.changeCategory(bookName, newCategory)}
+          removeBook={(bookTitle) => this.removeBook(bookTitle)}
+          changeCategory={(bookTitle, newCategory) => this.changeCategory(bookTitle, newCategory)}
           // For the <section>'s id and title
           id={categories.read.id} 
           title={categories.read.title}
