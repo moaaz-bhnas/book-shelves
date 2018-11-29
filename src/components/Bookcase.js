@@ -73,7 +73,7 @@ class Bookcase extends Component {
     const readBooks = books.filter(book => book.category === 'read');
 
     return (
-      <main role="main">
+      <React.Fragment>
         <Category 
           books={currentlyReadingBooks} 
           removeBook={(bookName) => this.removeBook(bookName)}
@@ -98,7 +98,7 @@ class Bookcase extends Component {
           id={categories.read.id} 
           title={categories.read.title}
         />
-      </main>
+      </React.Fragment>
     );
   }
 }
