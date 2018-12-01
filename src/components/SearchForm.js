@@ -1,16 +1,11 @@
 import React from 'react';
 
-const SearchForm = () => {
+const SearchForm = props => {
   return (
     <form id="search-form">
-      <header>
-        <h1>Add to your Bookcase  
-          <span role="img" aria-label="Book">📕</span>
-        </h1>
-        <p>
-          Search for a book by its <b>title</b> or <b>author name</b> to add to your bookcase.
-        </p>
-      </header>
+      <p>
+        Search for a book by its <b>title</b> or <b>author name</b> to add to your bookcase.
+      </p>
 
       <fieldset>
         <legend>Search by</legend>
@@ -21,7 +16,7 @@ const SearchForm = () => {
             type="search" 
             id="title-search"
             value={props.titleQuery}
-            onChange={props.onTitleQueryChange}
+            onChange={event => props.onTitleQueryChange(event.target.value)}
             disabled={props.titleSearchDisabled}
           />
         </p>
@@ -32,7 +27,7 @@ const SearchForm = () => {
             type="search" 
             id="author-search"
             value={props.authorQuery}
-            onChange={props.onAuthorQueryChange}
+            onChange={event => props.onAuthorQueryChange(event.target.value)}
             disabled={props.authorSearchDisabled}
           />
         </p>

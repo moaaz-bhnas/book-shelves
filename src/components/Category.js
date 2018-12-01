@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Book from './Book';
 
 const Category = props => {
-    const theOtherCategories = ['currently reading', 'want to read', 'read'].filter(category => category !== props.title.toLowerCase());
-
-    const books = props.books.map(book => (
-      <Book
-        key={book.title}
-        title={book.title}
-        src={book.src}
-        category={book.category}
-        removeBook={() => props.removeBook(book.title)}
-        theOtherCategories={theOtherCategories}
-        changeCategory={newCategoryName => props.changeCategory(book.title, newCategoryName)}
+    const booksElements = props.categoryBooks.map(book => {
+      const {title, category, id, src} = book;
+      return <Book
+        key={id}
+        title={title}
+        category={category}
+        src={src}
+        removeBook={() => props.removeBook(book.id)}
+        changeCategory={newCategoryName => props.changeCategory(book.id, newCategoryName)}
       />
-    ));
+    });
 
     return (
       <section 
@@ -24,7 +22,7 @@ const Category = props => {
       >
         <h2 id={props.id + '-heading'}>{props.title}</h2>
         <ul>
-          {books}
+          {booksElements}
         </ul>
       </section>
     );

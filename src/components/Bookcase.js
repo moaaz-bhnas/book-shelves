@@ -1,68 +1,59 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Category from './Category';
 
-class Bookcase extends Component {
-  state = {
-    books: [
-      new BookModel('Harry Potter and the Philosopher\'s Stone', hp1, 'currently reading'),
-      new BookModel('Harry Potter and the Chamber of Secrets', hp2, 'currently reading'),
-      new BookModel('Harry Potter and the Prisoner of Azkaban', hp3, 'want to read'),
-      new BookModel('Harry Potter and the Goblet of Fire', hp4, 'want to read'),
-      new BookModel('Harry Potter and the Order of the Phoenix', hp5, 'read'),
-      new BookModel('Harry Potter and the Half-Blood Prince', hp6, 'read'),
-      new BookModel('Harry Potter and the Deathly Hallows', hp7, 'read')
-    ]
+/* Category Model Class --- */
+class CategoryModel {
+  constructor(id, title) {
+    this.id = id;
+    this.title = title;
   }
-
-  removeBook(bookTitle) {
-    this.setState(prev => ({
-      books: prev.books.filter(book => book.title !== bookTitle)
-    }));
+}
+const categories = {
+  currentlyReading: new CategoryModel('currently-reading', 'Currently Reading'),
+  wantToRead: new CategoryModel('want-to-read', 'Want to Read'),
+  read: new CategoryModel('read', 'Read')
+}
+/* e.g.
+  {
+    id: 'read', // To be used as a section id in Category component
+    title: 'Read' // To be used as a section title
   }
+*/
 
-  changeCategory(bookTitle, newCategory) {
-    const books = this.state.books.slice();
-    const bookToMove = books.filter(book => book.title === bookTitle)[0];
-    bookToMove.category = newCategory;
-    this.setState({
-      books
-    })
-  }
+const Bookcase = props => {
+  const categorizedBooks = props.categorizedBooks;
+  const currentlyReadingBooks = categorizedBooks.filter(book => book.category === 'currently reading');
+  const wantToReadBooks = categorizedBooks.filter(book => book.category === 'want to read');
+  const readBooks = categorizedBooks.filter(book => book.category === 'read');
 
-  render() {
-    const books = this.state.books;
-    const currentlyReadingBooks = books.filter(book => book.category === 'currently reading');
-    const wantToReadBooks = books.filter(book => book.category === 'want to read');
-    const readBooks = books.filter(book => book.category === 'read');
-
-    return (
-      <React.Fragment>
-        <Category 
-          books={currentlyReadingBooks} 
-          removeBook={(bookTitle) => this.removeBook(bookTitle)}
-          changeCategory={(bookTitle, newCategory) => this.changeCategory(bookTitle, newCategory)}
-          // For the <section>'s id and title
-          id={categories.currentlyReading.id} 
-          title={categories.currentlyReading.title}
-        />
-        <Category 
-          books={wantToReadBooks} 
-          removeBook={(bookTitle) => this.removeBook(bookTitle)}
-          changeCategory={(bookTitle, newCategory) => this.changeCategory(bookTitle, newCategory)}
-          // For the <section>'s id and title
-          id={categories.wantToRead.id} 
-          title={categories.wantToRead.title}
-        />
-        <Category 
-          books={readBooks} 
-          removeBook={(bookTitle) => this.removeBook(bookTitle)}
-          changeCategory={(bookTitle, newCategory) => this.changeCategory(bookTitle, newCategory)}
-          // For the <section>'s id and title
-          id={categories.read.id} 
-          title={categories.read.title}
-        />
-      </React.Fragment>
-    );
-  }
+  return (
+    <React.Fragment>
+      <Category 
+        categoryBooks={currentlyReadingBooks} 
+        removeBook={props.removeBook}
+        changeCategory={props.changeCategory} 
+        // For the <section>'s id and title
+        id={categories.currentlyReading.id} 
+        title={categories.currentlyReading.title}
+      />
+      <Category 
+        categoryBooks={wantToReadBooks} 
+        removeBook={props.removeBook}
+        changeCategory={props.changeCategory} 
+        // For the <section>'s id and title
+        id={categories.wantToRead.id} 
+        title={categories.wantToRead.title}
+      />
+      <Category 
+        categoryBooks={readBooks} 
+        removeBook={props.removeBook}
+        changeCategory={props.changeCategory} 
+        // For the <section>'s id and title
+        id={categories.read.id} 
+        title={categories.read.title}
+      />
+    </React.Fragment>
+  );
 }
 
 export default Bookcase;
