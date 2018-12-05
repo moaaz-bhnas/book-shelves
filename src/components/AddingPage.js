@@ -6,8 +6,9 @@ import SearchResults from './SearchResults';
 const AddingPage = props => {
   return (
     <React.Fragment>
-      <header role="banner">
+      <header id="adding-page-header" role="banner">
         <Link 
+          id="return-link"
           to="/"
         >
           <span role="img" aria-label="Left Arrow">←</span> Return to my bookcase

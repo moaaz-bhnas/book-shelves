@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import { isPropertySupported } from './App';
+
+/* Helper functions to detect 3d transforms support --- */
+// Function from: https://stackoverflow.com/a/36191841/7982963
+const isValueSupported = (prop, value) => {
+  const el = document.createElement('div');
+  el.style[prop] = value;
+  return el.style[prop] === value;
+}
+// Function from: http://lea.verou.me/2009/02/check-if-a-css-property-is-supported/
+const isPropertySupported = property =>  property in document.body.style;
 
 class Book extends Component {
   state = {
@@ -27,7 +36,8 @@ class Book extends Component {
 
     // 3d book || 2d book
     let bookEl;
-    if (isPropertySupported('perspective')) {
+    if (isValueSupported('perspective', '400px') && isValueSupported('transform-style', 'preserve-3d') && isValueSupported('transform', 'rotateY(-180deg)') && isPropertySupported('perspective') && isPropertySupported('transform-style') && isPropertySupported('transform')) {
+      console.log(1);
       bookEl = 
         <div id="three-d-book">
           <img className="face" id="front" src={cover} alt={title}/>
@@ -43,7 +53,7 @@ class Book extends Component {
 
     return (
       <li className="book">
-        <a href={previewLink} target="_blank" rel="noopener noreferrer" className="preview-link">
+        <a href={previewLink} target="_blank" rel="noopener noreferrer" className="preview-link" title="Click to open a preview on a new window">
           {bookEl}
         </a>
     
@@ -64,6 +74,9 @@ class Book extends Component {
             className="category-selection" 
             aria-label={label}
             onChange={event => selectionHandler(event.target.value)}
+            style={{
+              width: isCategorizedBook ? '65px' /*move*/ : '55px' /*add*/
+            }}
           >
             <option>{action} to--</option> {/* move to || add to*/}
             {categoriesOptions.map(category => (
