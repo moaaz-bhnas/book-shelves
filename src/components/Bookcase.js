@@ -36,6 +36,9 @@ const Bookcase = props => {
         id={categories.currentlyReading.id} 
         title={categories.currentlyReading.title}
       />
+ 
+      <hr/>
+
       <Category 
         categoryBooks={wantToReadBooks} 
         removeBook={props.removeBook}
@@ -44,6 +47,9 @@ const Bookcase = props => {
         id={categories.wantToRead.id} 
         title={categories.wantToRead.title}
       />
+
+      <hr/>
+
       <Category 
         categoryBooks={readBooks} 
         removeBook={props.removeBook}

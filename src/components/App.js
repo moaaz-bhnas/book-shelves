@@ -13,24 +13,25 @@ import hp7 from '../images/hp7.jpg';
 
 /* Book Model Class --- */
 class BookModel {
-  constructor({title, category, id, src}) { 
+  constructor({title, category, id, cover, previewLink}) { 
     this.title = title;
-    this.src = src;
-    this.id = id;
     this.category = category;
+    this.id = id;
+    this.cover = cover;
+    this.previewLink = previewLink;
   }
 }
 
 class App extends Component {
   state = {
     categorizedBooks: [
-      new BookModel({title: 'Harry Potter and the Philosopher\'s Stone', category:'currently reading',  id: 'wrOQLV6xB-wC', src: hp1}),
-      new BookModel({title: 'Harry Potter and the Chamber of Secrets', category:'currently reading',  id: '0sPVBQAAQBAJ', src: hp2}),
-      new BookModel({title: 'Harry Potter and the Prisoner of Azkaban', category:'want to read',  id: 'rx6lswEACAAJ', src: hp3}),
-      new BookModel({title: 'Harry Potter and the Goblet of Fire', category:'want to read',  id: 'KKFTfEQ8bRAC', src: hp4}),
-      new BookModel({title: 'Harry Potter and the Order of the Phoenix', category:'read',  id: 'JJjgBwAAQBAJ', src: hp5}),
-      new BookModel({title: 'Harry Potter and the Half-Blood Prince', category:'read',  id: 'J-EUBQAAQBAJ', src: hp6}),
-      new BookModel({title: 'Harry Potter and the Deathly Hallows', category:'read', id: '7pvVBQAAQBAJ', src: hp7})
+      new BookModel({title: 'Harry Potter and the Philosopher\'s Stone', category:'currently reading',  id: 'wrOQLV6xB-wC', cover: hp1, previewLink: 'http://books.google.com.eg/books?id=39iYWTb6n6cC&dq=intitle:harry+potter+and+the&hl=&cd=8&source=gbs_api'}),
+      new BookModel({title: 'Harry Potter and the Chamber of Secrets', category:'currently reading',  id: '0sPVBQAAQBAJ', cover: hp2, previewLink: 'http://books.google.com.eg/books?id=hkK0GgAACAAJ&dq=intitle:harry+potter+and+the+chamber&hl=&cd=5&source=gbs_api'}),
+      new BookModel({title: 'Harry Potter and the Prisoner of Azkaban', category:'want to read',  id: 'rx6lswEACAAJ', cover: hp3, previewLink: 'http://books.google.com.eg/books?id=rx6lswEACAAJ&dq=intitle:harry+potter+and+the+pris&hl=&cd=1&source=gbs_api'}),
+      new BookModel({title: 'Harry Potter and the Goblet of Fire', category:'want to read',  id: 'KKFTfEQ8bRAC', cover: hp4, previewLink: 'http://books.google.com.eg/books?id=KKFTfEQ8bRAC&dq=intitle:harry+potter+and+the+goble&hl=&cd=1&source=gbs_api'}),
+      new BookModel({title: 'Harry Potter and the Order of the Phoenix', category:'read',  id: 'JJjgBwAAQBAJ', cover: hp5, previewLink: 'https://books.google.com/books/about/Harry_Potter_and_the_Order_of_the_Phoeni.html?hl=&id=JJjgBwAAQBAJ'}),
+      new BookModel({title: 'Harry Potter and the Half-Blood Prince', category:'read',  id: 'J-EUBQAAQBAJ', cover: hp6, previewLink: 'http://books.google.com.eg/books?id=8Sr_uQEACAAJ&dq=intitle:harry+potter+and+the+half&hl=&cd=3&source=gbs_api'}),
+      new BookModel({title: 'Harry Potter and the Deathly Hallows', category:'read', id: '7pvVBQAAQBAJ', cover: hp7, previewLink: 'http://books.google.com.eg/books?id=m-IoCQAAQBAJ&pg=PP1&dq=intitle:harry+potter+and+the+death&hl=&cd=9&source=gbs_api'})
     ],
     searchResultingBooks: [],
     titleQuery: '',
@@ -91,12 +92,11 @@ class App extends Component {
           const items = (data.items) ? data.items : []; // If the query is wierd and there're no matching books
           return (query === '') ? [] // When the search input is emptied
           : items.map(item => {
-            const title = item.volumeInfo.title;
-            const src = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.thumbnail 
-                                                     : null; // If no cover image in the api
+            const {title, previewLink} = item.volumeInfo;
+            const cover = item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : null;
             const id = item.id;
-            return new BookModel({title: title, id: id, src: src});
-          }).filter(book => book.src); // Only books with covers
+            return new BookModel({title: title, id: id, cover: cover, previewLink: previewLink});
+          }).filter(book => book.cover); // Only books with covers
         })();
         (function searchForPreviouslyAddedBooks() {
           searchResultingBooks.forEach(resultBook => {
@@ -169,3 +169,7 @@ class App extends Component {
 }
 
 export default App;
+
+/* Helper functions --- */
+// Detect CSS property support
+export const isPropertySupported = property =>  property in document.body.style;

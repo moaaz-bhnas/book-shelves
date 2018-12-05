@@ -1,0 +1,25 @@
+/* Variables === */
+// Colors
+$primary: #382d21;
+$accent: #3a375d;
+$accent-light: #c7c5e3;
+$accent-light-transparent: rgba(199, 197, 227, .5);
+$bookcase: #BA976E;
+
+// Book Size
+$x: 6.72rem;
+$y: 10.3rem;
+$z: 1rem;
+
+/* Mixins --- */
+@mixin btn {
+  border: 2px solid;
+  background-color: $accent-light-transparent;
+  cursor: pointer;
+  transition: background-color .2s;
+  &:hover,
+  &:focus {
+    background-color: $accent-light;
+  }
+  @content;
+}

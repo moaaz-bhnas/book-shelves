@@ -5,9 +5,10 @@ import Bookcase from './Bookcase';
 const MainPage = props => {
   return (
     <React.Fragment>
-      <header role="banner">
+      <header id="main-header" role="banner">
         <h1>Book Shelves</h1>
-      </header>
+      </header> {/* header */}
+
       <main role="main">
         <Bookcase 
           categorizedBooks={props.categorizedBooks}
@@ -15,17 +16,12 @@ const MainPage = props => {
           changeCategory={props.changeCategory} 
         />
         <Link 
-          className="nav-link" 
+          id="add-link"
           to="/add"
         >
-          <abbr title="Add" style={{
-            fontSize: '3rem',
-            position: 'fixed',
-            top: 0,
-            right: 0
-          }}>+</abbr>
+          Add
         </Link>
-      </main>
+      </main> {/* Main */}
     </React.Fragment>
   );
 };

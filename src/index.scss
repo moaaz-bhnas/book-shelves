@@ -1,3 +1,5 @@
+@import "utilities/variables"; 
+
 /* Base Styles --- */
 * {
   box-sizing: border-box;
@@ -5,6 +7,14 @@
 
 html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: $primary;
+  line-height: 1.45;
+  text-align: center;
+}
+
+#App {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 ul {
@@ -13,6 +23,224 @@ ul {
   list-style-type: none;
 }
 
-img {
-  max-width: 150px;
+h1, h2 {
+  line-height: 1.2;
+  font-weight: 600;
 }
+
+h1 {
+  font-size: 2.074rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+a,
+button,
+select {
+  color: $accent;
+}
+
+abbr {
+  text-decoration: none!important;
+}
+
+/* ================================================
+  Main Page
+=================================================== */
+
+/* -----------------------------------
+  Header
+-------------------------------------- */
+#main-header {
+  position: absolute;
+  left: -200rem;
+  padding: .5rem;
+
+  @media screen and (min-height: 44.8rem) { // 717
+    position: relative;
+  }
+
+  h1 {
+    margin: 0;
+  }
+}
+
+/* -----------------------------------
+  Main (bookcase)
+-------------------------------------- */
+main {
+  position: relative;
+  border: .75rem solid $bookcase; // 12
+  background-color: $bookcase;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, .5);
+  perspective: 500px;
+
+  hr {
+    margin: 0;
+    border: 0;
+    height: .7rem;
+    background-color: $bookcase;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .5);
+  }
+}
+
+/* Categories --- */
+.category {
+  min-height: 5rem;
+  text-align: center;
+
+  h2 {
+    margin: 0 0 .2rem .3rem;
+    text-align: left;
+  }
+}
+
+/* Books --- */
+.book {
+  display: inline-block;
+  margin: .2rem .4rem;
+  vertical-align: middle;
+}
+
+.preview-link {
+  img.cover {
+    max-width: 6.53rem;
+    margin-right: .2rem;
+    box-shadow: 0 5px 10px;
+    transition: box-shadow .2s;
+  }
+
+  &:hover img.cover,
+  &:focus img.cover {
+    box-shadow: 0 10px 20px;
+  }
+}
+
+.options {
+  display: inline-block;
+  vertical-align: top;
+
+  select {
+    width: 65px;
+    @include btn {
+      padding: .5rem 0;
+      border-radius: 1rem;
+    }
+  }
+}
+
+.remove {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: .5rem;
+  @include btn {
+    padding: .1rem .5rem;
+    border-radius: 50%;
+  }
+
+  abbr {
+    position: relative;
+    top: -3px;
+  }
+}
+
+/* Add link ---*/
+#add-link {
+  font-size: 1.5rem;
+  line-height: 1;
+  @include btn {
+    padding: .5rem;
+    border-radius: 1rem;
+  }
+  text-decoration: none;
+  position: absolute;
+  right: -.4rem;  top: -.4rem;
+}
+
+/* -----------------------------------
+  3D Book
+-------------------------------------- */
+#three-d-book {
+  position: relative;
+  width: $x;
+  height: $y;
+
+  transform-style: preserve-3d;
+  transition: transform .3s;
+}
+
+.preview-link {
+  display: inline-block;
+  margin-right: .5rem;
+
+  &:hover,
+  &:focus {
+    #three-d-book {
+      transform: rotateY(-30deg);
+    }
+    
+    #back {
+      box-shadow: 0 10px 20px;
+    }
+  }
+}
+
+.face {
+  position: absolute;
+  background-color: #fff;
+  opacity: 1;
+}
+
+/* Faces Sizing --- */
+#front,
+#back {
+  width: $x;
+  height: $y;
+}
+
+#top,
+#bottom {
+  width: $x;
+  height: $z;
+}
+
+#right,
+#left {
+  width: $z;
+  height: $y;
+}
+
+/* Faces Positioning --- */
+#front {
+  transform: translateZ(calc(#{$z} / 2));
+  left: 0;
+}
+
+#back {
+  transform: rotateY(180deg) translateZ(calc(#{$z} / 2));
+  box-shadow: 0 5px 10px;
+  transition: box-shadow .2s;
+}
+
+#top {
+  transform: rotateX(90deg) translateZ(calc(#{$z} / 2));
+}
+
+#bottom {
+  transform: rotateX(-90deg) translateZ(calc(#{$y} - .5rem));
+}
+
+#right {
+  transform: rotateY(90deg) translateZ(calc(#{$x} - .5rem));
+}
+
+#left {
+  transform: rotateY(-90deg) translateZ(calc(#{$z} / 2));
+  background-color: #333;
+}
+
+/* ================================================
+  Adding Page
+=================================================== */
