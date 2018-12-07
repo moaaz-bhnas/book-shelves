@@ -7,7 +7,9 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <BrowserRouter><App /></BrowserRouter>, 
+  <BrowserRouter basename="/book-shelves">
+    <App />
+  </BrowserRouter>, 
   document.getElementById('root')
 );
 
