@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/book-shelves/static/media/hp3.ca7c3819.jpg"
   },
   {
-    "revision": "8f64f6c0aee77e20e07c",
-    "url": "/book-shelves/static/css/main.4f8f2366.chunk.css"
+    "revision": "eaecb4a011f8bdfe27f8",
+    "url": "/book-shelves/static/css/main.98ce05d9.chunk.css"
   },
   {
     "revision": "bed2fc873117524cebac",
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/book-shelves/static/media/hp2.6c46e0ad.jpg"
   },
   {
-    "revision": "8f64f6c0aee77e20e07c",
-    "url": "/book-shelves/static/js/main.8f64f6c0.chunk.js"
+    "revision": "eaecb4a011f8bdfe27f8",
+    "url": "/book-shelves/static/js/main.eaecb4a0.chunk.js"
   },
   {
     "revision": "d00f8fb69a91cce9f4ceaf8956fc095b",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/book-shelves/static/media/hp7.0041fe33.jpg"
   },
   {
-    "revision": "657ab678740df407e933f24d3c80e82a",
+    "revision": "7788fb980714847d0713857c2c5c68b4",
     "url": "/book-shelves/index.html"
   }
 ];
