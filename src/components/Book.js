@@ -57,7 +57,7 @@ class Book extends Component {
           {bookEl}
         </a>
     
-        <div className="options">
+        {/* <div className="options"> */}
           {
             isCategorizedBook &&
             <button 
@@ -83,7 +83,7 @@ class Book extends Component {
               <option key={category}>{category}</option>
             ))}
           </select>
-        </div>
+        {/* </div> */}
       </li>
     );
   }

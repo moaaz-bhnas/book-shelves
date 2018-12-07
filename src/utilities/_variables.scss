@@ -3,7 +3,6 @@
 $primary: #382d21;
 $accent: #3a375d;
 $accent-light: #c7c5e3;
-$accent-light-transparent: rgba(199, 197, 227, .5);
 $bookcase: #BA976E;
 $borders: #5d4c37;
 
@@ -15,12 +14,12 @@ $z: 1rem;
 /* Mixins --- */
 @mixin btn {
   border: 2px solid;
-  background-color: $accent-light-transparent;
+  background-color: $accent-light;
   cursor: pointer;
-  transition: background-color .2s;
+  transition: box-shadow .2s;
   &:hover,
   &:focus {
-    background-color: $accent-light;
+    box-shadow: 4px 5px 13px rgba($color: #000000, $alpha: .5);
   }
   @content;
 }
