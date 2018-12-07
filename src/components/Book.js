@@ -75,9 +75,9 @@ class Book extends Component {
           onChange={event => selectionHandler(event.target.value)}
           style={{
             // To leave space for exactly "move" or "add"
-            width: isCategorizedBook ? '65px' /*move*/ : '55px', /*add*/
+            width: isCategorizedBook ? '4.0625rem' /*move*/ : '3.4375rem', /*add*/
             // To adjust the element exactly in the center
-            left: isCategorizedBook ? '21.26px' /*move*/ : '26.26px' /*add*/
+            left: isCategorizedBook ? '1.32875rem' /*move*/ : '1.64125rem' /*add*/
           }}
         >
           <option>{action} to--</option> {/* move to || add to*/}
