@@ -75,7 +75,10 @@ class Book extends Component {
             aria-label={label}
             onChange={event => selectionHandler(event.target.value)}
             style={{
-              width: isCategorizedBook ? '65px' /*move*/ : '55px' /*add*/
+              // To leave space for exactly "move" or "add"
+              width: isCategorizedBook ? '65px' /*move*/ : '55px', /*add*/
+              // To adjust the element exactly in the center
+              left: isCategorizedBook ? '21.26px' /*move*/ : '26.26px' /*add*/
             }}
           >
             <option>{action} to--</option> {/* move to || add to*/}
