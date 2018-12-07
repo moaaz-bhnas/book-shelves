@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import AddingPage from './AddingPage';
-import 'whatwg-fetch';
 // Images
 import hp1 from '../images/hp1.jpg';
 import hp2 from '../images/hp2.jpg';
@@ -360,32 +359,42 @@ class App extends Component {
 
   updateSearchBooks(query, field) {
     const categorizedBooks = this.state.categorizedBooks;
-    window.fetch(`https://www.googleapis.com/books/v1/volumes?q=${field}:${query}&maxResults=20&country=EG&key=AIzaSyCsJSEMz4agUsQkaJ5W8CZ6prwR0_WPLgY`)
-      .then(response => response.json())
-      .then(data => {
-        const searchResultingBooks = (function getResultBooks() {
-          const items = (data.items) ? data.items : []; // If the query is wierd and there're no matching books
-          return (query === '') ? [] // When the search input is emptied
-          : items.map(item => {
-            const {title, previewLink} = item.volumeInfo;
-            const cover = item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : null;
-            const id = item.id;
-            return new BookModel({title: title, id: id, cover: cover, previewLink: previewLink});
-          }).filter(book => book.cover); // Only books with covers
-        })();
-        (function searchForPreviouslyAddedBooks() {
-          searchResultingBooks.forEach(resultBook => {
-            categorizedBooks.forEach(categorizedBook => {
-              if (resultBook.id === categorizedBook.id) {
-                resultBook.category = categorizedBook.category; // To appear categorized in the search results
-              }
+    const http = new XMLHttpRequest(); 
+    http.onreadystatechange = () => {
+        if (http.readyState === 4 && http.status === 200) {
+            // To use the data(currently string), we should make it in object format
+            const data = JSON.parse(http.response);
+            const searchResultingBooks = (function getResultBooks() {
+              const items = (data.items) ? data.items : []; // If the query is wierd and there're no matching books
+              return (query === '') ? [] // When the search input is emptied
+              : items.map(item => {
+                const {title, previewLink} = item.volumeInfo;
+                const cover = item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : null;
+                const id = item.id;
+                return new BookModel({title: title, id: id, cover: cover, previewLink: previewLink});
+              }).filter(book => book.cover); // Only books with covers
+            })();
+            (function searchForPreviouslyAddedBooks() {
+              searchResultingBooks.forEach(resultBook => {
+                categorizedBooks.forEach(categorizedBook => {
+                  if (resultBook.id === categorizedBook.id) {
+                    resultBook.category = categorizedBook.category; // To appear categorized in the search results
+                  }
+                })
+              })
+            })();
+            this.setState({
+              searchResultingBooks
             })
-          })
-        })();
-        this.setState({
-          searchResultingBooks
-        })
-      })
+        }
+    };
+    
+    // Let's make these requests by few methods on this variable
+    // 1) .open() => set up the request (the type of request - where to get the data from(url) - async or sync)
+    http.open('Get', `https://www.googleapis.com/books/v1/volumes?q=${field}:${query}&maxResults=20&country=EG&key=AIzaSyCsJSEMz4agUsQkaJ5W8CZ6prwR0_WPLgY`, true); // 'false' to block the stack
+    
+    // 2) .send() => Go out and grab the data
+    http.send();
   }
 
   handleTitleQueryChange(query) {

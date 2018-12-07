@@ -13,7 +13,7 @@ html {
 }
 
 #App {
-  max-width: 900px;
+  max-width: 56.25rem; /* 900px */
   margin: 0 auto;
 }
 
@@ -120,16 +120,16 @@ main {
 
 select {
   position: absolute;
-  bottom: -5px;
+  bottom: -.3125rem; /* 5px */
   @include btn {
-    padding: .3rem 0;
+    padding: .5rem 0;
     border-radius: 1rem;
   }
 }
 
 .remove {
   position: absolute;
-  top: -18px; right: -30px;
+  top: -1.125rem; /* 18px */ right: -1.875rem; /* 30px */
   font-size: 2rem;
   margin-bottom: .5rem;
   @include btn {
@@ -139,7 +139,7 @@ select {
 
   abbr {
     position: relative;
-    top: -3px;
+    top: -.1875rem; /* 3px */
   }
 }
 
