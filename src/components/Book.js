@@ -57,36 +57,34 @@ class Book extends Component {
           {bookEl}
         </a>
     
-        {/* <div className="options"> */}
-          {
-            isCategorizedBook &&
-            <button 
-              className="remove"
-              type="button" 
-              onClick={this.props.removeBook}
-            >
-              <abbr title="Remove">⤫</abbr>
-            </button>
-          } {/* Remove Button */}
-
-          <select 
-            value={currentBookCategory}
-            className="category-selection" 
-            aria-label={label}
-            onChange={event => selectionHandler(event.target.value)}
-            style={{
-              // To leave space for exactly "move" or "add"
-              width: isCategorizedBook ? '65px' /*move*/ : '55px', /*add*/
-              // To adjust the element exactly in the center
-              left: isCategorizedBook ? '21.26px' /*move*/ : '26.26px' /*add*/
-            }}
+        {
+          isCategorizedBook &&
+          <button 
+            className="remove"
+            type="button" 
+            onClick={this.props.removeBook}
           >
-            <option>{action} to--</option> {/* move to || add to*/}
-            {categoriesOptions.map(category => (
-              <option key={category}>{category}</option>
-            ))}
-          </select>
-        {/* </div> */}
+            <abbr title="Remove">⤫</abbr>
+          </button>
+        } {/* Remove Button */}
+
+        <select 
+          value={currentBookCategory}
+          className="category-selection" 
+          aria-label={label}
+          onChange={event => selectionHandler(event.target.value)}
+          style={{
+            // To leave space for exactly "move" or "add"
+            width: isCategorizedBook ? '65px' /*move*/ : '55px', /*add*/
+            // To adjust the element exactly in the center
+            left: isCategorizedBook ? '21.26px' /*move*/ : '26.26px' /*add*/
+          }}
+        >
+          <option>{action} to--</option> {/* move to || add to*/}
+          {categoriesOptions.map(category => (
+            <option key={category}>{category}</option>
+          ))}
+        </select>
       </li>
     );
   }
