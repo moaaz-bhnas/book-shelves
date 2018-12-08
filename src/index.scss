@@ -105,11 +105,11 @@ main {
   vertical-align: middle;
 
   @media screen and (min-width: $break-m) {
-    margin: .2rem 1.5rem;
+    margin: .2rem 1.2rem;
   }
 
   @media screen and (min-width: $break-l) {
-    margin: .2rem 2rem;
+    margin: .2rem 1.5rem;
   }
 }
 
