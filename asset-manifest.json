@@ -1,7 +1,7 @@
 {
-  "main.css": "/book-shelves/static/css/main.43e15392.chunk.css",
-  "main.js": "/book-shelves/static/js/main.3a6ef5f5.chunk.js",
-  "main.js.map": "/book-shelves/static/js/main.3a6ef5f5.chunk.js.map",
+  "main.css": "/book-shelves/static/css/main.aec8d013.chunk.css",
+  "main.js": "/book-shelves/static/js/main.d8c7e6ee.chunk.js",
+  "main.js.map": "/book-shelves/static/js/main.d8c7e6ee.chunk.js.map",
   "static/js/1.63c999bd.chunk.js": "/book-shelves/static/js/1.63c999bd.chunk.js",
   "static/js/1.63c999bd.chunk.js.map": "/book-shelves/static/js/1.63c999bd.chunk.js.map",
   "runtime~main.js": "/book-shelves/static/js/runtime~main.c98e1487.js",
@@ -13,8 +13,8 @@
   "static/media/hp6.png": "/book-shelves/static/media/hp6.503c6ee7.png",
   "static/media/hp7.jpg": "/book-shelves/static/media/hp7.0041fe33.jpg",
   "static/media/hp2.jpg": "/book-shelves/static/media/hp2.6c46e0ad.jpg",
-  "static/css/main.43e15392.chunk.css.map": "/book-shelves/static/css/main.43e15392.chunk.css.map",
+  "static/css/main.aec8d013.chunk.css.map": "/book-shelves/static/css/main.aec8d013.chunk.css.map",
   "index.html": "/book-shelves/index.html",
-  "precache-manifest.ce22ecf484e483c50378894b3b04748f.js": "/book-shelves/precache-manifest.ce22ecf484e483c50378894b3b04748f.js",
+  "precache-manifest.c58e41503e1de0be121484393d6789e9.js": "/book-shelves/precache-manifest.c58e41503e1de0be121484393d6789e9.js",
   "service-worker.js": "/book-shelves/service-worker.js"
 }
