@@ -52,7 +52,7 @@ class Book extends Component {
 
     return (
       <li className="book">
-        <a href={previewLink} target="_blank" rel="noopener noreferrer" className="preview-link" title="Click to open a preview on a new window">
+        <a href={previewLink} className="preview-link" title="Click for the book preview page">
           {bookEl}
         </a>
     
