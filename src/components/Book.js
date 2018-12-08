@@ -37,7 +37,6 @@ class Book extends Component {
     // 3d book || 2d book
     let bookEl;
     if (isValueSupported('perspective', '400px') && isValueSupported('transform-style', 'preserve-3d') && isValueSupported('transform', 'rotateY(-180deg)') && isPropertySupported('perspective') && isPropertySupported('transform-style') && isPropertySupported('transform')) {
-      console.log(1);
       bookEl = 
         <div id="three-d-book">
           <img className="face" id="front" src={cover} alt={title}/>
@@ -76,8 +75,6 @@ class Book extends Component {
           style={{
             // To leave space for exactly "move" or "add"
             width: isCategorizedBook ? '4.0625rem' /*move*/ : '3.4375rem', /*add*/
-            // To adjust the element exactly in the center
-            left: isCategorizedBook ? '1.32875rem' /*move*/ : '1.64125rem' /*add*/
           }}
         >
           <option>{action} to--</option> {/* move to || add to*/}

@@ -6,10 +6,22 @@ $accent-light: #c7c5e3;
 $bookcase: #BA976E;
 $borders: #5d4c37;
 
+// Breakpoints
+$break-m: 554px;
+$break-l: 1000px;
+
 // Book Size
-$x: 6.72rem;
-$y: 10.3rem;
-$z: 1rem;
+$x-small: 4.704rem;
+$y-small: 7.21rem;
+$z-small: .7rem;
+
+$x-medium: 5.712rem;
+$y-medium: 8.755rem;
+$z-medium: .85rem;
+
+$x-large: 6.72rem;
+$y-large: 10.3rem;
+$z-large: 1rem;
 
 /* Mixins --- */
 @mixin btn {

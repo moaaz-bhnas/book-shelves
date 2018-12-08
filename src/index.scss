@@ -101,15 +101,31 @@ main {
 .book {
   position: relative;
   display: inline-block;
-  margin: .2rem 2rem;
+  margin: .2rem 1rem;
   vertical-align: middle;
+
+  @media screen and (min-width: $break-m) {
+    margin: .2rem 1.5rem;
+  }
+
+  @media screen and (min-width: $break-l) {
+    margin: .2rem 2rem;
+  }
 }
 
 .preview-link {
   img.cover {
-    max-width: 6.53rem;
+    max-width: 4.704rem;
     box-shadow: 0 5px 10px;
     transition: box-shadow .2s;
+
+    @media screen and (min-width: $break-m) {
+      max-width: 5.712rem;
+    }
+
+    @media screen and (min-width: $break-l) {
+      max-width: 6.53rem;
+    }
   }
 
   &:hover img.cover,
@@ -121,6 +137,8 @@ main {
 select {
   position: absolute;
   bottom: -.3125rem; /* 5px */
+  left: 50%;
+  transform: translateX(-50%);
   @include btn {
     padding: .5rem 0;
     border-radius: 1rem;
@@ -129,7 +147,7 @@ select {
 
 .remove {
   position: absolute;
-  top: -1.125rem; /* 18px */ right: -1.875rem; /* 30px */
+  top: -.5rem; /* 18px */ right: -1.875rem; /* 30px */
   font-size: 2rem;
   margin-bottom: .5rem;
   @include btn {
@@ -161,11 +179,21 @@ select {
 -------------------------------------- */
 #three-d-book {
   position: relative;
-  width: $x;
-  height: $y;
+  width: $x-small;
+  height: $y-small;
 
   transform-style: preserve-3d;
   transition: transform .3s;
+
+  @media screen and (min-width: $break-m) {
+    width: $x-medium;
+    height: $y-medium;
+  }
+
+  @media screen and (min-width: $break-l) {
+    width: $x-large;
+    height: $y-large;
+  }
 }
 
 .preview-link {
@@ -192,49 +220,127 @@ select {
 /* Faces Sizing --- */
 #front,
 #back {
-  width: $x;
-  height: $y;
+  width: $x-small;
+  height: $y-small;
+
+  @media screen and (min-width: $break-m) {
+    width: $x-medium;
+    height: $y-medium;
+  }
+
+  @media screen and (min-width: $break-l) {
+    width: $x-large;
+    height: $y-large;
+  }
 }
 
 #top,
 #bottom {
-  width: $x;
-  height: $z;
+  width: $x-small;
+  height: $z-small;
+
+  @media screen and (min-width: $break-m) {
+    width: $x-medium;
+    height: $z-medium;
+  }
+
+  @media screen and (min-width: $break-l) {
+    width: $x-large;
+    height: $z-large;
+  }
 }
 
 #right,
 #left {
-  width: $z;
-  height: $y;
+  width: $z-small;
+  height: $y-small;
+
+  @media screen and (min-width: $break-m) {
+    width: $z-medium;
+    height: $y-medium;
+  }
+
+  @media screen and (min-width: $break-l) {
+    width: $z-large;
+    height: $y-large;
+  }
 }
 
 /* Faces Positioning --- */
 #front {
-  transform: translateZ(calc(#{$z} / 2));
+  transform: translateZ(calc(#{$z-small} / 2));
   left: 0;
+
+  @media screen and (min-width: $break-m) {
+    transform: translateZ(calc(#{$z-medium} / 2));
+  }
+
+  @media screen and (min-width: $break-l) {
+    transform: translateZ(calc(#{$z-large} / 2));
+  }
 }
 
 #back {
-  transform: rotateY(180deg) translateZ(calc(#{$z} / 2));
+  transform: rotateY(180deg) translateZ(calc(#{$z-small} / 2));
   box-shadow: 0 5px 10px;
   transition: box-shadow .2s;
+
+  @media screen and (min-width: $break-m) {
+    transform: rotateY(180deg) translateZ(calc(#{$z-medium} / 2));
+  }
+
+  @media screen and (min-width: $break-l) {
+    transform: rotateY(180deg) translateZ(calc(#{$z-large} / 2));
+  }
 }
 
 #top {
-  transform: rotateX(90deg) translateZ(calc(#{$z} / 2));
+  transform: rotateX(90deg) translateZ(calc(#{$z-small} / 2));
+
+  @media screen and (min-width: $break-m) {
+    transform: rotateX(90deg) translateZ(calc(#{$z-medium} / 2));
+  }
+
+  @media screen and (min-width: $break-l) {
+    transform: rotateX(90deg) translateZ(calc(#{$z-large} / 2));
+  }
 }
 
 #bottom {
-  transform: rotateX(-90deg) translateZ(calc(#{$y} - .5rem));
+  transform: rotateX(-90deg) translateZ(calc(#{$y-small} - .5rem));
+  
+  @media screen and (min-width: $break-m) {
+    transform: rotateX(-90deg) translateZ(calc(#{$y-medium} - .5rem));
+  }
+
+  @media screen and (min-width: $break-l) {
+    transform: rotateX(-90deg) translateZ(calc(#{$y-large} - .5rem));
+  }
 }
 
 #right {
-  transform: rotateY(90deg) translateZ(calc(#{$x} - .5rem));
+  transform: rotateY(90deg) translateZ(calc(#{$x-small} - .5rem));
+  
+  @media screen and (min-width: $break-m) {
+    transform: rotateY(90deg) translateZ(calc(#{$x-medium} - .5rem));
+  }
+
+  @media screen and (min-width: $break-l) {
+    transform: rotateY(90deg) translateZ(calc(#{$x-large} - .5rem));
+  }
 }
 
 #left {
-  transform: rotateY(-90deg) translateZ(calc(#{$z} / 2));
+  transform: rotateY(-90deg) translateZ(calc(#{$z-small} / 2));
   background-color: #333;
+  
+  @media screen and (min-width: $break-m) {
+    transform: rotateY(-90deg) translateZ(calc(#{$z-medium} / 2));
+  }
+
+  @media screen and (min-width: $break-l) {
+    transform: rotateY(-90deg) translateZ(calc(#{$z-large} / 2));
+  }
 }
 
 /* ================================================
