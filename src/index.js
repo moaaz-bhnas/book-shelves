@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './normalize.css';
 import './index.scss';
 import { BrowserRouter } from 'react-router-dom';
+import './es5+6-polyfills';
+import 'promise-polyfill/src/polyfill';
+import 'whatwg-fetch';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
