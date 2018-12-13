@@ -1,31 +1,35 @@
 self.__precacheManifest = [
   {
-    "revision": "ca7c3819ac6a3cafe43403b36b68b7ae",
-    "url": "/book-shelves/static/media/hp3.ca7c3819.jpg"
+    "revision": "6c46e0adc5e4412218376dfd0381cba4",
+    "url": "/book-shelves/static/media/hp2.6c46e0ad.jpg"
   },
   {
-    "revision": "c4a14c8e7a68e6b09ee9",
-    "url": "/book-shelves/static/css/main.aec8d013.chunk.css"
+    "revision": "fde9dcddcc0bffdfec97",
+    "url": "/book-shelves/static/css/main.ab4b14f6.chunk.css"
   },
   {
-    "revision": "63c999bdd48b67f54044",
-    "url": "/book-shelves/static/js/1.63c999bd.chunk.js"
+    "revision": "591600e29e2b3377f35b",
+    "url": "/book-shelves/static/js/1.591600e2.chunk.js"
   },
   {
     "revision": "c98e1487fffd31e9af72",
     "url": "/book-shelves/static/js/runtime~main.c98e1487.js"
   },
   {
+    "revision": "73d502ef09f9c1b5019355f13fbba3cd",
+    "url": "/book-shelves/static/media/smile.73d502ef.svg"
+  },
+  {
     "revision": "9d5cdaf71fb17d84e6a1874438e37f4b",
     "url": "/book-shelves/static/media/hp1.9d5cdaf7.jpg"
   },
   {
-    "revision": "6c46e0adc5e4412218376dfd0381cba4",
-    "url": "/book-shelves/static/media/hp2.6c46e0ad.jpg"
+    "revision": "fde9dcddcc0bffdfec97",
+    "url": "/book-shelves/static/js/main.fde9dcdd.chunk.js"
   },
   {
-    "revision": "c4a14c8e7a68e6b09ee9",
-    "url": "/book-shelves/static/js/main.c4a14c8e.chunk.js"
+    "revision": "ca7c3819ac6a3cafe43403b36b68b7ae",
+    "url": "/book-shelves/static/media/hp3.ca7c3819.jpg"
   },
   {
     "revision": "d00f8fb69a91cce9f4ceaf8956fc095b",
@@ -44,7 +48,7 @@ self.__precacheManifest = [
     "url": "/book-shelves/static/media/hp7.0041fe33.jpg"
   },
   {
-    "revision": "1119ee48752cc3111c79f22b07eee7e9",
+    "revision": "3ea16bf7bbdaf927fd608d94a8f08941",
     "url": "/book-shelves/index.html"
   }
 ];
