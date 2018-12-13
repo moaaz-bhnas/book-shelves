@@ -13,7 +13,7 @@ html {
 }
 
 #App {
-  max-width: 56.25rem; /* 900px */
+  max-width: 45rem; 
   margin: 0 auto;
 }
 
@@ -116,7 +116,7 @@ main {
 .preview-link {
   img.cover {
     max-width: 4.704rem;
-    box-shadow: 0 5px 10px;
+    box-shadow: 0 5px 10px #000;
     transition: box-shadow .2s;
 
     @media screen and (min-width: $break-m) {
@@ -130,7 +130,7 @@ main {
 
   &:hover img.cover,
   &:focus img.cover {
-    box-shadow: 0 10px 20px;
+    box-shadow: 0 10px 20px #000;
   }
 }
 
@@ -206,7 +206,7 @@ select {
     }
     
     #back {
-      box-shadow: 0 10px 20px;
+      box-shadow: 0 10px 20px #000;
     }
   }
 }
@@ -282,7 +282,7 @@ select {
 
 #back {
   transform: rotateY(180deg) translateZ(calc(#{$z-small} / 2));
-  box-shadow: 0 5px 10px;
+  box-shadow: 0 5px 10px #000;
   transition: box-shadow .2s;
 
   @media screen and (min-width: $break-m) {
@@ -351,6 +351,7 @@ select {
   Header
 -------------------------------------- */
 #adding-page-header {
+  color: $bookcase;
   h1 {
     margin: 1rem;
   }
@@ -358,6 +359,13 @@ select {
 
 #return-link {
   font-size: 1.2rem;
+}
+
+/* -----------------------------------
+  Form
+-------------------------------------- */
+form {
+  color: $bookcase;
 }
 
 /* -----------------------------------
