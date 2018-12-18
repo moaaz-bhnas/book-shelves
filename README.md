@@ -1,5 +1,5 @@
 ## Book Shelves
-A bookcase simulation where you can categorize your books into three shelves (currently reading, want to read and read). I used Google Books API, so you can search for any book to add it to one of your shelves :D.
+A bookcase simulation where you can categorize your books into three shelves (currently reading, want to read and read). You can also search for any book to add it to one of your shelves :D.
  
 ## Screenshots
 ![Screenshot](https://i.ibb.co/8ckzKCr/bookcase.png) ![live preview](https://media.giphy.com/media/1qfKUr28JoocW3XDOf/giphy.gif)
