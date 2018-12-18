@@ -33,6 +33,14 @@ const AddingPage = props => {
         removeBook={props.removeBook}
         changeCategory={props.changeCategory}
       />
+
+      <footer>
+        <p>
+          <small>
+            Powered by <b>Google books API</b>.
+          </small>
+        </p>
+      </footer>
     </React.Fragment>
   );
 }
