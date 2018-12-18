@@ -7,7 +7,7 @@ A bookcase simulation where you can categorize your books into three shelves (cu
 ## Tech/framework used
 <b>Built with</b>
 - [React js](https://reactjs.org/)
-<b>Powered by</b>
+<b>Powered by</b>  
 - [Google Books API](https://developers.google.com/books/)
 
 ## Installation
