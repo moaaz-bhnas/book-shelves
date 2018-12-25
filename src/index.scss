@@ -177,7 +177,7 @@ select {
 /* -----------------------------------
   3D Book
 -------------------------------------- */
-#three-d-book {
+.three-d-book {
   position: relative;
   width: $x-small;
   height: $y-small;
@@ -201,11 +201,11 @@ select {
 
   &:hover,
   &:focus {
-    #three-d-book {
+    .three-d-book {
       transform: rotateY(-21deg);
     }
     
-    #back {
+    .back {
       box-shadow: 0 10px 20px #000;
     }
   }
@@ -218,8 +218,8 @@ select {
 }
 
 /* Faces Sizing --- */
-#front,
-#back {
+.front,
+.back {
   width: $x-small;
   height: $y-small;
 
@@ -234,8 +234,8 @@ select {
   }
 }
 
-#top,
-#bottom {
+.top,
+.bottom {
   width: $x-small;
   height: $z-small;
 
@@ -250,8 +250,8 @@ select {
   }
 }
 
-#right,
-#left {
+.right,
+.left {
   width: $z-small;
   height: $y-small;
 
@@ -267,7 +267,7 @@ select {
 }
 
 /* Faces Positioning --- */
-#front {
+.front {
   transform: translateZ(calc(#{$z-small} / 2));
   left: 0;
 
@@ -280,7 +280,7 @@ select {
   }
 }
 
-#back {
+.back {
   transform: rotateY(180deg) translateZ(calc(#{$z-small} / 2));
   box-shadow: 0 5px 10px #000;
   transition: box-shadow .2s;
@@ -294,7 +294,7 @@ select {
   }
 }
 
-#top {
+.top {
   transform: rotateX(90deg) translateZ(calc(#{$z-small} / 2));
 
   @media screen and (min-width: $break-m) {
@@ -306,7 +306,7 @@ select {
   }
 }
 
-#bottom {
+.bottom {
   transform: rotateX(-90deg) translateZ(calc(#{$y-small} - .5rem));
   
   @media screen and (min-width: $break-m) {
@@ -318,7 +318,7 @@ select {
   }
 }
 
-#right {
+.right {
   transform: rotateY(90deg) translateZ(calc(#{$x-small} - .5rem));
   
   @media screen and (min-width: $break-m) {
@@ -330,7 +330,7 @@ select {
   }
 }
 
-#left {
+.left {
   transform: rotateY(-90deg) translateZ(calc(#{$z-small} / 2));
   background-color: #333;
   

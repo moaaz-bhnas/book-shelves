@@ -38,13 +38,13 @@ class Book extends Component {
     let bookEl;
     if (isValueSupported('perspective', '400px') && isValueSupported('transform-style', 'preserve-3d') && isValueSupported('transform', 'rotateY(-180deg)') && isPropertySupported('perspective') && isPropertySupported('transform-style') && isPropertySupported('transform')) {
       bookEl = 
-        <div id="three-d-book">
-          <img className="face" id="front" src={cover} alt={title}/>
-          <div className="face" id="back" role="presentation"></div>
-          <div className="face" id="top" role="presentation"></div>
-          <div className="face" id="bottom" role="presentation"></div>
-          <div className="face" id="right" role="presentation"></div>
-          <div className="face" id="left" role="presentation"></div>
+        <div className="three-d-book">
+          <img className="front face" src={cover} alt={title}/>
+          <div className="back face" role="presentation"></div>
+          <div className="top face" role="presentation"></div>
+          <div className="bottom face" role="presentation"></div>
+          <div className="right face" role="presentation"></div>
+          <div className="left face" role="presentation"></div>
         </div>
     } else {
       bookEl = <img className="cover" src={cover} alt={title}/>
