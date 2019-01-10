@@ -1,3 +1,20 @@
+/* Arra.prototype.includes --- */
+if (!String.prototype.includes) {
+  Object.defineProperty(String.prototype, 'includes', {
+    value: function(search, start) {
+      if (typeof start !== 'number') {
+        start = 0
+      }
+      
+      if (start + search.length > this.length) {
+        return false
+      } else {
+        return this.indexOf(search, start) !== -1
+      }
+    }
+  })
+}
+
 /* Object.assign polyfill --- */
 if (typeof Object.assign != 'function') {
   // Must be writable: true, enumerable: false, configurable: true

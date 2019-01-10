@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './normalize.css';
-import './index.scss';
+import './style/normalize.css';
+import './style/index.scss';
 import { BrowserRouter } from 'react-router-dom';
 import './es5+6-polyfills';
 import 'promise-polyfill/src/polyfill';
