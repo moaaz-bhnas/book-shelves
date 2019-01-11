@@ -20,8 +20,7 @@ const categories = {
   }
 */
 
-const Bookcase = props => {
-  const categorizedBooks = props.categorizedBooks;
+const Bookcase = ({categorizedBooks, removeBook, changeCategory}) => {
   const currentlyReadingBooks = categorizedBooks.filter(book => book.category === 'currently reading');
   const wantToReadBooks = categorizedBooks.filter(book => book.category === 'want to read');
   const readBooks = categorizedBooks.filter(book => book.category === 'read');
@@ -30,8 +29,8 @@ const Bookcase = props => {
     <React.Fragment>
       <Category 
         categoryBooks={currentlyReadingBooks} 
-        removeBook={props.removeBook}
-        changeCategory={props.changeCategory} 
+        removeBook={removeBook}
+        changeCategory={changeCategory} 
         // For the <section>'s id and title
         id={categories.currentlyReading.id} 
         title={categories.currentlyReading.title}
@@ -41,8 +40,8 @@ const Bookcase = props => {
 
       <Category 
         categoryBooks={wantToReadBooks} 
-        removeBook={props.removeBook}
-        changeCategory={props.changeCategory} 
+        removeBook={removeBook}
+        changeCategory={changeCategory} 
         // For the <section>'s id and title
         id={categories.wantToRead.id} 
         title={categories.wantToRead.title}
@@ -52,8 +51,8 @@ const Bookcase = props => {
 
       <Category 
         categoryBooks={readBooks} 
-        removeBook={props.removeBook}
-        changeCategory={props.changeCategory} 
+        removeBook={removeBook}
+        changeCategory={changeCategory} 
         // For the <section>'s id and title
         id={categories.read.id} 
         title={categories.read.title}

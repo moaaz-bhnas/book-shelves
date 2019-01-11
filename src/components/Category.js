@@ -1,30 +1,27 @@
 import React from 'react';
 import Book from './Book';
 
-const Category = props => {
-    const booksElements = props.categoryBooks.map(book => {
-      const {title, category, id, cover, previewLink} = book;
-      return <Book
+const Category = ({categoryBooks, removeBook, changeCategory, id, title}) => {
+    const booksElements = categoryBooks.map(({title, category, id, cover, previewLink}) => (
+      <Book
         key={id}
         title={title}
         category={category}
         cover={cover}
         previewLink={previewLink}
-        removeBook={() => props.removeBook(book.id)}
-        changeCategory={newCategoryName => props.changeCategory(book.id, newCategoryName)}
+        removeBook={() => removeBook(id)}
+        changeCategory={newCategoryName => changeCategory(id, newCategoryName)}
       />
-    });
-
-    const {id, title} = props;
+    ));
 
     return (
       <section 
         id={id}
         className="category"
         role="region" 
-        aria-labelledby={props.id + '-heading'}
+        aria-labelledby={id + '-heading'}
       >
-        <h2 id={props.id + '-heading'}>
+        <h2 id={id + '-heading'}>
           {title}
         </h2>
 

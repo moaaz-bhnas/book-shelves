@@ -6,7 +6,7 @@ const Book = ({category, title, cover, previewLink, changeCategory, addToBookcas
     - If the book is categorized, it will be rendered in a specific way.
     - Remove option is provided and instead of offering to add the book, the app offers to move it to the other cateories
   */
-  const isCategorizedBook = !!category;
+  const isCategorizedBook = !!category; // (!!) converts any datatype to boolean
   const action = isCategorizedBook ? 'move' : 'add';
   const categories = ['currently reading', 'want to read', 'read'];
   const categoriesOptions = isCategorizedBook ? categories.filter(item => item !== category) 

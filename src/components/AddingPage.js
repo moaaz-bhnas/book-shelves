@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 
-const AddingPage = props => {
+const AddingPage = ({searchResultingBooks, addToBookcase, removeBook, changeCategory, updateSearchBooks}) => {
   return (
     <React.Fragment>
       <header id="adding-page-header" role="banner">
@@ -19,19 +19,14 @@ const AddingPage = props => {
       </header>
 
       <SearchForm 
-        titleQuery={props.titleQuery}
-        authorQuery={props.authorQuery}
-        titleSearchDisabled={props.titleSearchDisabled}
-        authorSearchDisabled={props.authorSearchDisabled}
-        onTitleQueryChange={props.onTitleQueryChange}
-        onAuthorQueryChange={props.onAuthorQueryChange}
+        updateSearchBooks={updateSearchBooks}
       />
 
       <SearchResults 
-        searchResultingBooks={props.searchResultingBooks}
-        addToBookcase={props.addToBookcase}
-        removeBook={props.removeBook}
-        changeCategory={props.changeCategory}
+        searchResultingBooks={searchResultingBooks}
+        addToBookcase={addToBookcase}
+        removeBook={removeBook}
+        changeCategory={changeCategory}
       />
 
       <footer>

@@ -14,30 +14,22 @@ import hp7 from '../images/hp7.jpg';
 /* Book Model Class --- */
 class BookModel {
   constructor({title, category, id, cover, previewLink}) { 
-    this.title = title;
-    this.category = category;
-    this.id = id;
-    this.cover = cover;
-    this.previewLink = previewLink;
+    Object.assign(this, {title, category, id, cover, previewLink})
   }
 }
 
 class App extends Component {
   state = {
     categorizedBooks: [
-      new BookModel({title: 'Harry Potter and the Philosopher\'s Stone', category:'currently reading',  id: 'wrOQLV6xB-wC', cover: hp1, previewLink: 'http://books.google.com.eg/books?id=39iYWTb6n6cC&dq=intitle:harry+potter+and+the&hl=&cd=8&source=gbs_api'}),
-      new BookModel({title: 'Harry Potter and the Chamber of Secrets', category:'currently reading',  id: '0sPVBQAAQBAJ', cover: hp2, previewLink: 'http://books.google.com.eg/books?id=hkK0GgAACAAJ&dq=intitle:harry+potter+and+the+chamber&hl=&cd=5&source=gbs_api'}),
-      new BookModel({title: 'Harry Potter and the Prisoner of Azkaban', category:'want to read',  id: 'rx6lswEACAAJ', cover: hp3, previewLink: 'http://books.google.com.eg/books?id=rx6lswEACAAJ&dq=intitle:harry+potter+and+the+pris&hl=&cd=1&source=gbs_api'}),
-      new BookModel({title: 'Harry Potter and the Goblet of Fire', category:'want to read',  id: 'KKFTfEQ8bRAC', cover: hp4, previewLink: 'http://books.google.com.eg/books?id=KKFTfEQ8bRAC&dq=intitle:harry+potter+and+the+goble&hl=&cd=1&source=gbs_api'}),
-      new BookModel({title: 'Harry Potter and the Order of the Phoenix', category:'read',  id: 'JJjgBwAAQBAJ', cover: hp5, previewLink: 'https://books.google.com/books/about/Harry_Potter_and_the_Order_of_the_Phoeni.html?hl=&id=JJjgBwAAQBAJ'}),
-      new BookModel({title: 'Harry Potter and the Half-Blood Prince', category:'read',  id: 'J-EUBQAAQBAJ', cover: hp6, previewLink: 'http://books.google.com.eg/books?id=8Sr_uQEACAAJ&dq=intitle:harry+potter+and+the+half&hl=&cd=3&source=gbs_api'}),
+      new BookModel({title: 'Harry Potter and the Philosopher\'s Stone', category:'currently reading', id: 'wrOQLV6xB-wC', cover: hp1, previewLink: 'http://books.google.com.eg/books?id=39iYWTb6n6cC&dq=intitle:harry+potter+and+the&hl=&cd=8&source=gbs_api'}),
+      new BookModel({title: 'Harry Potter and the Chamber of Secrets', category:'currently reading', id: '0sPVBQAAQBAJ', cover: hp2, previewLink: 'http://books.google.com.eg/books?id=hkK0GgAACAAJ&dq=intitle:harry+potter+and+the+chamber&hl=&cd=5&source=gbs_api'}),
+      new BookModel({title: 'Harry Potter and the Prisoner of Azkaban', category:'want to read', id: 'rx6lswEACAAJ', cover: hp3, previewLink: 'http://books.google.com.eg/books?id=rx6lswEACAAJ&dq=intitle:harry+potter+and+the+pris&hl=&cd=1&source=gbs_api'}),
+      new BookModel({title: 'Harry Potter and the Goblet of Fire', category:'want to read', id: 'KKFTfEQ8bRAC', cover: hp4, previewLink: 'http://books.google.com.eg/books?id=KKFTfEQ8bRAC&dq=intitle:harry+potter+and+the+goble&hl=&cd=1&source=gbs_api'}),
+      new BookModel({title: 'Harry Potter and the Order of the Phoenix', category:'read', id: 'JJjgBwAAQBAJ', cover: hp5, previewLink: 'https://books.google.com/books/about/Harry_Potter_and_the_Order_of_the_Phoeni.html?hl=&id=JJjgBwAAQBAJ'}),
+      new BookModel({title: 'Harry Potter and the Half-Blood Prince', category:'read', id: 'J-EUBQAAQBAJ', cover: hp6, previewLink: 'http://books.google.com.eg/books?id=8Sr_uQEACAAJ&dq=intitle:harry+potter+and+the+half&hl=&cd=3&source=gbs_api'}),
       new BookModel({title: 'Harry Potter and the Deathly Hallows', category:'read', id: '7pvVBQAAQBAJ', cover: hp7, previewLink: 'http://books.google.com.eg/books?id=m-IoCQAAQBAJ&pg=PP1&dq=intitle:harry+potter+and+the+death&hl=&cd=9&source=gbs_api'})
     ],
-    searchResultingBooks: [],
-    titleQuery: '',
-    authorQuery: '',
-    titleSearchDisabled: false,
-    authorSearchDisabled: false
+    searchResultingBooks: []
   }
 
   addToBookcase(book, category) {
@@ -81,7 +73,7 @@ class App extends Component {
     })
   }
 
-  updateSearchBooks(query, field) {
+  updateSearchBooks = (query, field) => {
     const {categorizedBooks} = this.state;
     window.fetch(`https://www.googleapis.com/books/v1/volumes?q=${field}:${query}&maxResults=20&country=EG&key=AIzaSyCsJSEMz4agUsQkaJ5W8CZ6prwR0_WPLgY`)
       .then(response => response.json())
@@ -111,28 +103,6 @@ class App extends Component {
       })
   }
 
-  handleTitleQueryChange(query) {
-    // Update input value
-    this.setState({
-      titleQuery: query,
-      authorSearchDisabled: query ? true : false
-    });
-    // Fetch books
-    const formattedQuery = query.split(' ').join('+').toLowerCase(); // e.g. Harry Potter => harry+potter
-    this.updateSearchBooks(formattedQuery, 'intitle');
-  }
-
-  handleAuthorQueryChange(query) {
-    // Update input value
-    this.setState({
-      authorQuery: query,
-      titleSearchDisabled: query ? true : false
-    });
-    // Fetch books
-    const formattedQuery = query.split(' ').join('+').toLowerCase();
-    this.updateSearchBooks(formattedQuery, 'inauthor');
-  }
-
   render() {
     const categorizedBooks = this.state.categorizedBooks;
     const searchResultingBooks = this.state.searchResultingBooks;
@@ -150,15 +120,10 @@ class App extends Component {
           <AddingPage 
             categorizedBooks={categorizedBooks}
             searchResultingBooks={searchResultingBooks}
-            titleQuery={this.state.titleQuery}
-            authorQuery={this.state.authorQuery}
-            titleSearchDisabled={this.state.titleSearchDisabled}
-            authorSearchDisabled={this.state.authorSearchDisabled}
-            onTitleQueryChange={(query) => this.handleTitleQueryChange(query)}
-            onAuthorQueryChange={(query) => this.handleAuthorQueryChange(query)}
             addToBookcase={(bookId, category) => this.addToBookcase(bookId, category)}
             removeBook={(bookId) => this.removeBook(bookId)}
             changeCategory={(bookId, newCategory) => this.changeCategory(bookId, newCategory)}
+            updateSearchBooks={this.updateSearchBooks}
           />
         )} />
       </div>
