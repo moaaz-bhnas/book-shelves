@@ -12,7 +12,7 @@ const Bookcase = ({categorizedBooks, removeBook, changeCategory}) => {
         categoryBooks={currentlyReadingBooks} 
         removeBook={removeBook}
         changeCategory={changeCategory} 
-        // For the <section>'s id and title
+        // For the <section>'s id and heading
         id={'currently-reading'} 
         title={'Currently Reading'}
       />
@@ -23,7 +23,7 @@ const Bookcase = ({categorizedBooks, removeBook, changeCategory}) => {
         categoryBooks={wantToReadBooks} 
         removeBook={removeBook}
         changeCategory={changeCategory} 
-        // For the <section>'s id and title
+        // For the <section>'s id and heading
         id={'want-to-read'} 
         title={'Want to Read'}
       />
@@ -34,7 +34,7 @@ const Bookcase = ({categorizedBooks, removeBook, changeCategory}) => {
         categoryBooks={readBooks} 
         removeBook={removeBook}
         changeCategory={changeCategory} 
-        // For the <section>'s id and title
+        // For the <section>'s id and heading
         id={'read'} 
         title={'Read'}
       />
