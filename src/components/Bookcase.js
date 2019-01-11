@@ -1,25 +1,6 @@
 import React from 'react';
 import Category from './Category';
 
-/* Category Model Class --- */
-class CategoryModel {
-  constructor(id, title) {
-    this.id = id;
-    this.title = title;
-  }
-}
-const categories = {
-  currentlyReading: new CategoryModel('currently-reading', 'Currently Reading'),
-  wantToRead: new CategoryModel('want-to-read', 'Want to Read'),
-  read: new CategoryModel('read', 'Read')
-}
-/* e.g.
-  {
-    id: 'read', // To be used as a section id in Category component
-    title: 'Read' // To be used as a section title
-  }
-*/
-
 const Bookcase = ({categorizedBooks, removeBook, changeCategory}) => {
   const currentlyReadingBooks = categorizedBooks.filter(book => book.category === 'currently reading');
   const wantToReadBooks = categorizedBooks.filter(book => book.category === 'want to read');
@@ -32,8 +13,8 @@ const Bookcase = ({categorizedBooks, removeBook, changeCategory}) => {
         removeBook={removeBook}
         changeCategory={changeCategory} 
         // For the <section>'s id and title
-        id={categories.currentlyReading.id} 
-        title={categories.currentlyReading.title}
+        id={'currently-reading'} 
+        title={'Currently Reading'}
       />
  
       <hr/>
@@ -43,8 +24,8 @@ const Bookcase = ({categorizedBooks, removeBook, changeCategory}) => {
         removeBook={removeBook}
         changeCategory={changeCategory} 
         // For the <section>'s id and title
-        id={categories.wantToRead.id} 
-        title={categories.wantToRead.title}
+        id={'want-to-read'} 
+        title={'Want to Read'}
       />
 
       <hr/>
@@ -54,8 +35,8 @@ const Bookcase = ({categorizedBooks, removeBook, changeCategory}) => {
         removeBook={removeBook}
         changeCategory={changeCategory} 
         // For the <section>'s id and title
-        id={categories.read.id} 
-        title={categories.read.title}
+        id={'read'} 
+        title={'Read'}
       />
     </React.Fragment>
   );

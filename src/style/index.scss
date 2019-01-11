@@ -101,16 +101,8 @@ main {
 .book {
   position: relative;
   display: inline-block;
-  margin: .2rem 1rem;
+  margin: 1.7rem 1rem;
   vertical-align: middle;
-
-  @media screen and (min-width: $break-m) {
-    margin: .2rem 1.2rem;
-  }
-
-  @media screen and (min-width: $break-l) {
-    margin: .2rem 1.5rem;
-  }
 }
 
 .preview-link {
@@ -136,7 +128,7 @@ main {
 
 select {
   position: absolute;
-  bottom: -.3125rem; /* 5px */
+  bottom: -1.3rem; 
   left: 50%;
   transform: translateX(-50%);
   @include btn {
@@ -147,7 +139,7 @@ select {
 
 .remove {
   position: absolute;
-  top: -.5rem; /* 18px */ right: -1.875rem; /* 30px */
+  top: -1.375rem; /* 22px */ right: -1.375rem; /* 22px */
   font-size: 2rem;
   margin-bottom: .5rem;
   @include btn {

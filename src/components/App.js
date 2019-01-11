@@ -32,7 +32,7 @@ class App extends Component {
     searchResultingBooks: []
   }
 
-  addToBookcase(book, category) {
+  addToBookcase = (book, category) => {
     /* To add the book to the categorizedBooks --- */
     const categorizedBooksCopy = this.state.categorizedBooks.slice();
     const bookCopy = Object.assign({}, book);
@@ -51,7 +51,7 @@ class App extends Component {
     });
   }
 
-  removeBook(bookId) {
+  removeBook = bookId => {
     const searchResultingBooksCopy = this.state.searchResultingBooks.slice();
     searchResultingBooksCopy.forEach(book => {
       if (book.id === bookId) {
@@ -64,7 +64,7 @@ class App extends Component {
     }));
   }
   
-  changeCategory(bookId, newCategory) {
+  changeCategory = (bookId, newCategory) => {
     const categorizedBooksCopy = this.state.categorizedBooks.slice();
     const bookToMove = categorizedBooksCopy.filter(book => book.id === bookId)[0];
     bookToMove.category = newCategory;
@@ -104,26 +104,26 @@ class App extends Component {
   }
 
   render() {
-    const categorizedBooks = this.state.categorizedBooks;
-    const searchResultingBooks = this.state.searchResultingBooks;
+    const {categorizedBooks, searchResultingBooks} = this.state;
+    const {addToBookcase, removeBook, changeCategory, updateSearchBooks} = this;
 
     return (
       <div id="App">
         <Route exact path="/" render={() => (
           <MainPage 
             categorizedBooks={categorizedBooks} 
-            removeBook={(bookId) => this.removeBook(bookId)}
-            changeCategory={(bookId, newCategory) => this.changeCategory(bookId, newCategory)}
+            removeBook={removeBook}
+            changeCategory={changeCategory}
           />
         )} />
         <Route path="/add" render={() => (
           <AddingPage 
             categorizedBooks={categorizedBooks}
             searchResultingBooks={searchResultingBooks}
-            addToBookcase={(bookId, category) => this.addToBookcase(bookId, category)}
-            removeBook={(bookId) => this.removeBook(bookId)}
-            changeCategory={(bookId, newCategory) => this.changeCategory(bookId, newCategory)}
-            updateSearchBooks={this.updateSearchBooks}
+            addToBookcase={addToBookcase}
+            removeBook={removeBook}
+            changeCategory={changeCategory}
+            updateSearchBooks={updateSearchBooks}
           />
         )} />
       </div>
