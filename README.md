@@ -2,10 +2,9 @@
 A bookcase simulation where you can categorize your books into three shelves (currently reading, want to read and read) and move them about. You can also search for any book to add it to one of your shelves.
 
 ## Quality Standards
-- The project is fully accessible (friendly for disabled people).
+- The project is fully accessible (friendly for disabled people and interactive elements like buttons are operable using keyboard only).
 - Cross-browser compatible (Works on most common browsers available, including IE).
 - Responsive for all screen sizes.
-
 
 ## Live
 https://moaaz-bhnas.github.io/book-shelves/
