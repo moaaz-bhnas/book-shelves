@@ -4,6 +4,7 @@ A bookcase simulation where you can categorize your books into three shelves (cu
 ## Quality Standards
 - The project is fully accessible (friendly for disabled people).
 - Cross-browser compatible (Works on most common browsers available, including IE).
+- Responsive for all screen sizes.
 
 
 ## Live
