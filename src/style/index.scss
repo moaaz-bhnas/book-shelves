@@ -269,6 +269,7 @@ select {
 }
 
 .back {
+  z-index: -1;
   transform: rotateY(180deg) translateZ(calc(#{$z-small} / 2));
   box-shadow: 0 5px 10px #000;
   transition: box-shadow .2s;
