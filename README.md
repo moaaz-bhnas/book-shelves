@@ -10,7 +10,7 @@ A bookcase simulation where you can categorize your books into three shelves (cu
 https://moaaz-bhnas.github.io/book-shelves/
  
 ## Screenshots
-![Screenshot](https://i.ibb.co/GcXYCDs/screenshot.png) ![live preview](https://media.giphy.com/media/1qfKUr28JoocW3XDOf/giphy.gif)
+![Screenshot](https://i.ibb.co/GcXYCDs/screenshot.png)
 
 ## Tech/framework used
 <b>Built with</b>
