@@ -36,4 +36,4 @@ $ npm start
 ```
 
 ## Credits
-Big thanks to my close friend [Soha](https://twitter.com/ShM_Soha) for picking the color palette for this project. 
+Big thanks to my close friend [Soha](https://twitter.com/SohaShokry) for picking the color palette for this project. 
